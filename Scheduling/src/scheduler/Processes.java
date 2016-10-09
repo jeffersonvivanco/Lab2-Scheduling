@@ -1,4 +1,5 @@
 package scheduler;
+import javax.lang.model.element.Element;
 import java.util.*;
 import java.io.*;
 /**
@@ -30,6 +31,10 @@ public class Processes {
         }
         sc.close();
     }
+    public Process remove(){
+        Process p = this.fifoQueue.remove();
+        return p;
+    }
     public void setRandomNumFile(){
         this.randomNumFile = new File("/Users/jeffersonvivanco/IdeaProjects/Lab2-Scheduling/random-numbers.txt");
         try{
@@ -47,13 +52,27 @@ public class Processes {
     public Queue<Process> getFifoQueue(){
         return this.fifoQueue;
     }
-
+    public Iterator<Process> iterator (){
+        Iterator<Process> iterator = null;
+        if(!this.fifoQueue.isEmpty()){
+            iterator = this.fifoQueue.iterator();
+        }
+        return iterator;
+    }
     @Override
     public String toString(){
         String string = "";
-        for(int i=0; i<processes.size(); i++){
-            string = string + processes.get(i).toString()+"\n";
+        if(iterator()!=null){
+            for(Process p : this.fifoQueue){
+                string  = string + p.toString() + "\n\n";
+            }
         }
+        else{
+            for(int i=0; i<processes.size(); i++){
+                string = string + processes.get(i).toString()+"\n";
+            }
+        }
+
         return string;
     }
 }

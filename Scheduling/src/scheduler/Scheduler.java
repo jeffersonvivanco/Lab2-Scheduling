@@ -37,7 +37,45 @@ public class Scheduler {
         processes.setFifoQueue();
         Queue<Process> fifoqueue = processes.getFifoQueue();
 
-
+        //Variables
+        int precededingCPUBurst = 0;
+        int cpuTime = 0;
+        int arrivalTime = 0;
+        int ioTime = 0;
+        int finishingTime = 0;
+        int turnaroundTime = 0;
+        int waitingTime = 0;
+        int processId = 0;
+        int cpuBurst = 0;
+        int ioBurst = 0;
+        int processingTime = 0;
+        Iterator<Process> iterator = fifoqueue.iterator();
+        for(Process p : fifoqueue){
+            if(p.getProcessId() == 0){
+                precededingCPUBurst = 1;
+            }
+            cpuTime = p.getC();
+            arrivalTime = p.getA();
+            cpuBurst = p.getBurstTime();
+            ioBurst = p.getM() * precededingCPUBurst;
+            while(cpuTime > 0){
+                if(cpuTime > 1){
+                    processingTime = processingTime + cpuBurst + ioBurst;
+                    ioTime++;
+                }
+                else{
+                    processingTime = processingTime + cpuBurst;
+                }
+                cpuTime --;
+            }
+            finishingTime = processingTime;
+            turnaroundTime = finishingTime  - arrivalTime;
+            p.setFinishingTime(finishingTime);
+            p.setIoTime(ioTime);
+            p.setTurnaroundTime(turnaroundTime);
+            precededingCPUBurst = cpuBurst;
+        }
+        System.out.println(fifoqueue.toString());
 
     }
 

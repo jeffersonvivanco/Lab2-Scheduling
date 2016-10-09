@@ -46,6 +46,9 @@ public class Process implements Comparable<Process> {
     public int getBurstTime(){
         return this.burstTime;
     }
+    public int getProcessId(){
+        return this.processId;
+    }
     public void setFinishingTime(int f){
         this.finishingTime = f;
     }
