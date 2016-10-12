@@ -16,6 +16,13 @@ public class Process implements Comparable<Process> {
     private int ioTime  = 0;
     private int waitingTime = 0;
     private int processId =0;
+    private boolean blockstate;
+    private boolean readystate = true;
+    private int blockedTime;
+    private int readyTime;
+    private boolean terminated = false;
+    private int currentTime = 0;
+    private int remainingTime = 0;
 
 
     public Process(String processNumber){
@@ -28,6 +35,7 @@ public class Process implements Comparable<Process> {
         this.M = Integer.parseInt(processNumberArray[3]);
 
     }
+
     public String getProcessNumber(){
         return this.processNumber;
     }
@@ -49,6 +57,37 @@ public class Process implements Comparable<Process> {
     public int getProcessId(){
         return this.processId;
     }
+    public boolean getReadystate(){
+        return this.readystate;
+    }
+    public boolean getBlockedstate(){
+        return this.blockstate;
+    }
+    public int getWaitingTime(){
+        return this.waitingTime;
+    }
+    public int getBlockedTime(){
+        return this.blockedTime;
+    }
+    public int getReadyTime(){
+        return this.readyTime;
+    }
+    public boolean isTerminated(){
+        return this.terminated;
+    }
+    public int getCurrentTime(){
+        return this.currentTime;
+    }
+    public int getRemainingTime(){
+        return this.remainingTime;
+    }
+    public int getFinishingTime() {
+        return this.finishingTime;
+    }
+    public int getIoTime(){
+        return this.ioTime;
+    }
+
     public void setFinishingTime(int f){
         this.finishingTime = f;
     }
@@ -67,6 +106,29 @@ public class Process implements Comparable<Process> {
     public void setProcessId(int id){
         this.processId  = id;
     }
+    public void setBlockstate(boolean b){
+        this.blockstate = b;
+    }
+    public void setReadystate(boolean b){
+        this.readystate = b;
+    }
+    public void setBlockedTime(int bt){
+        this.blockedTime = bt;
+    }
+    public void setReadyTime(int rt){
+        this.readyTime  = rt;
+    }
+    public void setTerminated(boolean t){
+        this.terminated  = t;
+    }
+    public void setCurrentTime(int ct){
+        this.currentTime = ct;
+    }
+    public void setRemainingTime(int rt){
+        this.remainingTime = rt;
+    }
+
+
     public int compareTo(Process o){
         if(this.A < o.getA()){
             return -1;

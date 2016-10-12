@@ -9,7 +9,7 @@ public class Scheduler {
 
     public static void main(String[] args){
         Scheduler scheduler = new Scheduler();
-        File f = new File("/Users/jeffersonvivanco/IdeaProjects/Lab2-Scheduling/FCFSInputs/input-1.txt");
+        File f = new File("/Users/jeffersonvivanco/IdeaProjects/Lab2-Scheduling/FCFSInputs/input-4.txt");
         Processes processes = new Processes();
         String [] inputLine = null;
         try{
@@ -31,51 +31,98 @@ public class Scheduler {
             }
         }
         scheduler.fcfsScheduling(processes);
+        System.out.println(processes);
+
 
     }
     public void fcfsScheduling(Processes processes){
-        processes.setFifoQueue();
-        Queue<Process> fifoqueue = processes.getFifoQueue();
+        processes.sort();
+        boolean isDone = false;
 
-        //Variables
-        int precededingCPUBurst = 0;
-        int cpuTime = 0;
-        int arrivalTime = 0;
-        int ioTime = 0;
+        int time = 0;
+        int numTerminated = 0;
         int finishingTime = 0;
-        int turnaroundTime = 0;
-        int waitingTime = 0;
-        int processId = 0;
-        int cpuBurst = 0;
-        int ioBurst = 0;
-        int processingTime = 0;
-        Iterator<Process> iterator = fifoqueue.iterator();
-        for(Process p : fifoqueue){
-            if(p.getProcessId() == 0){
-                precededingCPUBurst = 1;
-            }
-            cpuTime = p.getC();
-            arrivalTime = p.getA();
-            cpuBurst = p.getBurstTime();
-            ioBurst = p.getM() * precededingCPUBurst;
-            while(cpuTime > 0){
-                if(cpuTime > 1){
-                    processingTime = processingTime + cpuBurst + ioBurst;
-                    ioTime++;
+        while (!isDone){
+
+            for(int i=0; i<processes.size() && !isDone && processes.getProcess(i).getA()<=time; i++){
+
+
+                if(processes.getProcess(i).isTerminated()){
+                    continue;
                 }
-                else{
-                    processingTime = processingTime + cpuBurst;
+                if(processes.getProcess(i).getRemainingTime()>=0 && processes.getProcess(i).getReadystate() && !processes.getProcess(i).isTerminated()){
+
+                    int arrivalTime = processes.getProcess(i).getA();
+                    int cpuTime = processes.getProcess(i).getC();
+                    int cpuBurstTime = processes.getProcess(i).getBurstTime();
+                    int ioBurstTime = processes.getProcess(i).getM()*cpuBurstTime;
+                    if((time - processes.getProcess(i).getCurrentTime()) >= 1){
+
+                        processes.getProcess(i).setWaitingTime((time - processes.getProcess(i).getCurrentTime())+processes.getProcess(i).getWaitingTime());
+                        processes.getProcess(i).setCurrentTime(time);
+
+                    }
+
+                    if(processes.getProcess(i).getRemainingTime() > 0 ){
+                        finishingTime = cpuBurstTime + ioBurstTime;
+                        processes.getProcess(i).setFinishingTime(processes.getProcess(i).getFinishingTime()+finishingTime);
+
+                        processes.getProcess(i).setIoTime(processes.getProcess(i).getIoTime()+ioBurstTime);
+                        processes.getProcess(i).setReadystate(false);
+                        processes.getProcess(i).setReadyTime(time + ioBurstTime);
+
+                        if(cpuBurstTime > processes.getProcess(i).getRemainingTime()){
+                            processes.getProcess(i).setRemainingTime(cpuBurstTime);
+                        }
+                        else
+                            processes.getProcess(i).setRemainingTime(processes.getProcess(i).getRemainingTime()-cpuBurstTime);
+
+
+
+
+                    }
+                    else if(processes.getProcess(i).getRemainingTime() <= 0 ){
+
+                        finishingTime = cpuBurstTime;
+
+                        processes.getProcess(i).setFinishingTime(finishingTime + processes.getProcess(i).getWaitingTime()+
+                                processes.getProcess(i).getFinishingTime()+processes.getProcess(i).getA());
+                        int turnaroundTime = processes.getProcess(i).getFinishingTime() - processes.getProcess(i).getA();
+                        processes.getProcess(i).setTurnaroundTime(turnaroundTime);
+                        processes.getProcess(i).setTerminated(true);
+
+                        numTerminated++;
+
+                    }
+                    else{
+                        //do nothing
+                    }
+
                 }
-                cpuTime --;
+                time = time + 1;
+
+                if(processes.getProcess(i).getRemainingTime() >=0 && !processes.getProcess(i).getReadystate() && !processes.getProcess(i).isTerminated()){
+                    if(time == processes.getProcess(i).getReadyTime()){
+
+                        processes.getProcess(i).setReadystate(true);
+
+                        processes.getProcess(i).setCurrentTime(time+1);
+
+                    }
+                    else{
+//                        processes.getProcess(i).setReadyTime(processes.getProcess(i).getReadyTime()-1);
+                    }
+
+
+                }
+                if(numTerminated == processes.size()){
+                    isDone = true;
+                }
+
             }
-            finishingTime = processingTime;
-            turnaroundTime = finishingTime  - arrivalTime;
-            p.setFinishingTime(finishingTime);
-            p.setIoTime(ioTime);
-            p.setTurnaroundTime(turnaroundTime);
-            precededingCPUBurst = cpuBurst;
+
+
         }
-        System.out.println(fifoqueue.toString());
 
     }
 
