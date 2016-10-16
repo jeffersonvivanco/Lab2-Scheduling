@@ -16,12 +16,12 @@ public class Process implements Comparable<Process> {
     private int ioTime  = 0;
     private int waitingTime = 0;
     private int processId =0;
-    private boolean blockstate;
+    private boolean blockstate = false;
     private boolean readystate = true;
     private int blockedTime;
     private int readyTime;
     private boolean terminated = false;
-    private int currentTime = 0;
+
     private int remainingTime = 0;
 
 
@@ -75,9 +75,6 @@ public class Process implements Comparable<Process> {
     public boolean isTerminated(){
         return this.terminated;
     }
-    public int getCurrentTime(){
-        return this.currentTime;
-    }
     public int getRemainingTime(){
         return this.remainingTime;
     }
@@ -120,9 +117,6 @@ public class Process implements Comparable<Process> {
     }
     public void setTerminated(boolean t){
         this.terminated  = t;
-    }
-    public void setCurrentTime(int ct){
-        this.currentTime = ct;
     }
     public void setRemainingTime(int rt){
         this.remainingTime = rt;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97c72134-52c3-4378-a98d-7a10f686d4a2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Scheduling/scheduler/Process.class" afterPath="$PROJECT_DIR$/out/production/Scheduling/scheduler/Process.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Scheduling/scheduler/Processes.class" afterPath="$PROJECT_DIR$/out/production/Scheduling/scheduler/Processes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Scheduling/scheduler/Scheduler.class" afterPath="$PROJECT_DIR$/out/production/Scheduling/scheduler/Scheduler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scheduling/src/scheduler/Process.java" afterPath="$PROJECT_DIR$/Scheduling/src/scheduler/Process.java" />
@@ -28,35 +28,18 @@
     <favorites_list name="Lab2-Scheduling" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Scheduler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Scheduler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="98" selection-start-line="11" selection-start-column="98" selection-end-line="11" selection-end-column="98" />
+            <state relative-caret-position="1605">
+              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1248#1257#0" expanded="true" />
+                <element signature="e#1308#1317#0" expanded="true" />
+                <element signature="e#1376#1385#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fcfs-output-5.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-5.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fcfs-output-4.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-4.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -64,8 +47,8 @@
       <file leaf-file-name="Process.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Process.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+            <state relative-caret-position="-90">
+              <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding>
                 <element signature="method#compareTo#0;class#Process#0" expanded="false" />
                 <element signature="method#toString#0;class#Process#0" expanded="false" />
@@ -77,27 +60,29 @@
       <file leaf-file-name="Processes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Processes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+            <state relative-caret-position="356">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-                <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-                <element signature="method#remove#0;class#Processes#0" expanded="false" />
+                <element signature="e#389#390#0" expanded="true" />
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#457#458#0" expanded="true" />
+                <element signature="e#497#498#0" expanded="true" />
+                <element signature="e#520#521#0" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#1146#1147#0" expanded="true" />
+                <element signature="e#1185#1186#0" expanded="true" />
                 <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-                <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-                <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-                <element signature="method#toString#0;class#Processes#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fcfs-output-3.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-3.txt">
+      <file leaf-file-name="fcfs-output-2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-2.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -172,6 +157,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,8 +194,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,6 +203,8 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
@@ -755,7 +742,9 @@
       <workItem from="1475989214885" duration="172000" />
       <workItem from="1475991292831" duration="1922000" />
       <workItem from="1476031336753" duration="4104000" />
-      <workItem from="1476071826356" duration="37914000" />
+      <workItem from="1476071826356" duration="53736000" />
+      <workItem from="1476538398534" duration="265000" />
+      <workItem from="1476539547270" duration="31420000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1475532489764</created>
@@ -778,11 +767,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476035477514</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Second commit">
+      <created>1476260423765</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1476260423765</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60297000" />
+    <option name="totallyTimeSpent" value="107804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -796,16 +792,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="868" y="28" width="387" height="284" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.2735724" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="421" y="184" width="650" height="477" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11631664" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.39452055" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="168" y="302" width="923" height="547" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.39452055" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="263" y="596" width="1042" height="454" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -855,25 +851,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Scheduling/src/scheduler/Scheduler.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Scheduling/src/scheduler/Scheduler.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="60" />
+      <option name="time" value="105" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -882,14 +865,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/random-numbers.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Process.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -905,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,13 +889,15 @@
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-            <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-            <element signature="method#remove#0;class#Processes#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
             <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-            <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-            <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-            <element signature="method#toString#0;class#Processes#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -932,6 +908,9 @@
           <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -948,7 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -967,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,13 +954,15 @@
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-            <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-            <element signature="method#remove#0;class#Processes#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
             <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-            <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-            <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-            <element signature="method#toString#0;class#Processes#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -994,6 +973,9 @@
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1002,7 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,13 +1018,15 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-            <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-            <element signature="method#remove#0;class#Processes#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
             <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-            <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-            <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-            <element signature="method#toString#0;class#Processes#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1055,6 +1037,9 @@
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1063,7 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1099,13 +1082,15 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-            <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-            <element signature="method#remove#0;class#Processes#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
             <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-            <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-            <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-            <element signature="method#toString#0;class#Processes#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1116,6 +1101,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1124,7 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,7 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,13 +1146,15 @@
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-            <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-            <element signature="method#remove#0;class#Processes#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
             <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-            <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-            <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-            <element signature="method#toString#0;class#Processes#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1177,6 +1165,9 @@
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1196,7 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,6 +1196,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1225,7 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,15 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,6 +1289,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-6.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1319,10 +1315,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Process.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        <state relative-caret-position="-90">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding>
             <element signature="method#compareTo#0;class#Process#0" expanded="false" />
             <element signature="method#toString#0;class#Process#0" expanded="false" />
@@ -1332,43 +1344,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Processes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+        <state relative-caret-position="356">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Processes#0;class#Processes#0" expanded="false" />
-            <element signature="method#setFifoQueue#0;class#Processes#0" expanded="false" />
-            <element signature="method#remove#0;class#Processes#0" expanded="false" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
             <element signature="method#setRandomNumFile#0;class#Processes#0" expanded="false" />
-            <element signature="method#randomOS#0;class#Processes#0" expanded="false" />
-            <element signature="method#iterator#0;class#Processes#0" expanded="false" />
-            <element signature="method#toString#0;class#Processes#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FCFSOutputs/fcfs-output-4.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scheduling/src/scheduler/Scheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="98" selection-start-line="11" selection-start-column="98" selection-end-line="11" selection-end-column="98" />
+        <state relative-caret-position="1605">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1248#1257#0" expanded="true" />
+            <element signature="e#1308#1317#0" expanded="true" />
+            <element signature="e#1376#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>

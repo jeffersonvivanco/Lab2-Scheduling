@@ -9,7 +9,7 @@ public class Scheduler {
 
     public static void main(String[] args){
         Scheduler scheduler = new Scheduler();
-        File f = new File("/Users/jeffersonvivanco/IdeaProjects/Lab2-Scheduling/FCFSInputs/input-4.txt");
+        File f = new File("/Users/jeffersonvivanco/IdeaProjects/Lab2-Scheduling/FCFSInputs/input-7.txt");
         Processes processes = new Processes();
         String [] inputLine = null;
         try{
@@ -35,94 +35,100 @@ public class Scheduler {
 
 
     }
-    public void fcfsScheduling(Processes processes){
+    public void fcfsScheduling(Processes processes) {
+
         processes.sort();
-        boolean isDone = false;
 
-        int time = 0;
-        int numTerminated = 0;
-        int finishingTime = 0;
-        while (!isDone){
+        int clock = 0;
 
-            for(int i=0; i<processes.size() && !isDone && processes.getProcess(i).getA()<=time; i++){
+        int totalNumOfProcesses = processes.size();
 
+        ArrayList<Process> terminatedList = new ArrayList<Process>();
 
-                if(processes.getProcess(i).isTerminated()){
-                    continue;
+        Queue<Process> readyQ = new LinkedList<Process>();
+
+        ArrayList<Process> blockedList = new ArrayList<Process>();
+
+        while(terminatedList.size() != totalNumOfProcesses){
+
+//            System.out.println(clock);//Checking the clock
+
+            for(int i=0; i<processes.size(); i++){
+                if(processes.getProcess(i).getA() <= clock){
+                    readyQ.add(processes.getProcess(i));
+                    processes.remove(i);
                 }
-                if(processes.getProcess(i).getRemainingTime()>=0 && processes.getProcess(i).getReadystate() && !processes.getProcess(i).isTerminated()){
+            }
 
-                    int arrivalTime = processes.getProcess(i).getA();
-                    int cpuTime = processes.getProcess(i).getC();
-                    int cpuBurstTime = processes.getProcess(i).getBurstTime();
-                    int ioBurstTime = processes.getProcess(i).getM()*cpuBurstTime;
-                    if((time - processes.getProcess(i).getCurrentTime()) >= 1){
+            if(!readyQ.isEmpty()){
+                Process pr  = readyQ.peek();
+                if(pr.getReadyTime() <= clock){
+                    pr = readyQ.remove();
 
-                        processes.getProcess(i).setWaitingTime((time - processes.getProcess(i).getCurrentTime())+processes.getProcess(i).getWaitingTime());
-                        processes.getProcess(i).setCurrentTime(time);
+                    int cpuBurstTime = pr.getBurstTime();
 
-                    }
 
-                    if(processes.getProcess(i).getRemainingTime() > 0 ){
-                        finishingTime = cpuBurstTime + ioBurstTime;
-                        processes.getProcess(i).setFinishingTime(processes.getProcess(i).getFinishingTime()+finishingTime);
+                    int waitTime  = clock - pr.getReadyTime();
 
-                        processes.getProcess(i).setIoTime(processes.getProcess(i).getIoTime()+ioBurstTime);
-                        processes.getProcess(i).setReadystate(false);
-                        processes.getProcess(i).setReadyTime(time + ioBurstTime);
 
-                        if(cpuBurstTime > processes.getProcess(i).getRemainingTime()){
-                            processes.getProcess(i).setRemainingTime(cpuBurstTime);
-                        }
-                        else
-                            processes.getProcess(i).setRemainingTime(processes.getProcess(i).getRemainingTime()-cpuBurstTime);
+
+                    int currentWaitTime = pr.getWaitingTime();
+                    pr.setWaitingTime(waitTime+currentWaitTime);
 
 
 
 
-                    }
-                    else if(processes.getProcess(i).getRemainingTime() <= 0 ){
+                    if(pr.getRemainingTime() > 1){
+                        int ioBurstTime = cpuBurstTime*pr.getM();
+                        int currentIo = pr.getIoTime();
+                        pr.setIoTime(currentIo + ioBurstTime);
 
-                        finishingTime = cpuBurstTime;
 
-                        processes.getProcess(i).setFinishingTime(finishingTime + processes.getProcess(i).getWaitingTime()+
-                                processes.getProcess(i).getFinishingTime()+processes.getProcess(i).getA());
-                        int turnaroundTime = processes.getProcess(i).getFinishingTime() - processes.getProcess(i).getA();
-                        processes.getProcess(i).setTurnaroundTime(turnaroundTime);
-                        processes.getProcess(i).setTerminated(true);
+                        int currentFinishTime = pr.getFinishingTime();
+                        int finishTime = cpuBurstTime+ioBurstTime;
+                        pr.setFinishingTime(currentFinishTime+finishTime+waitTime);
 
-                        numTerminated++;
+                        pr.setRemainingTime(pr.getRemainingTime()-cpuBurstTime);
+
+                        pr.setBlockedTime(ioBurstTime);
+                        pr.setReadyTime(pr.getBlockedTime() + clock + 1);
+                        blockedList.add(pr);
+                        clock = clock+cpuBurstTime;
 
                     }
                     else{
-                        //do nothing
-                    }
-
-                }
-                time = time + 1;
-
-                if(processes.getProcess(i).getRemainingTime() >=0 && !processes.getProcess(i).getReadystate() && !processes.getProcess(i).isTerminated()){
-                    if(time == processes.getProcess(i).getReadyTime()){
-
-                        processes.getProcess(i).setReadystate(true);
-
-                        processes.getProcess(i).setCurrentTime(time+1);
+                        pr.setFinishingTime(pr.getBurstTime() + pr.getFinishingTime()+pr.getA() + waitTime);
+                        pr.setTurnaroundTime(pr.getFinishingTime() - pr.getA());
+                        pr.setRemainingTime(pr.getRemainingTime() - cpuBurstTime);
+                        terminatedList.add(pr);
+                        clock = clock + cpuBurstTime;
 
                     }
-                    else{
-//                        processes.getProcess(i).setReadyTime(processes.getProcess(i).getReadyTime()-1);
-                    }
 
-
-                }
-                if(numTerminated == processes.size()){
-                    isDone = true;
                 }
 
             }
+            else{
+                clock++;
+            }
 
+
+            for(int x=0; x<blockedList.size(); x++){
+                if(blockedList.get(x).getReadyTime() <= clock){
+
+                    Process tr = blockedList.remove(x);
+                    readyQ.add(tr);
+                }
+            }
 
         }
+//        Collections.sort(terminatedList);
+        for(int i=0; i<terminatedList.size(); i++){
+            System.out.println(terminatedList.get(i));
+        }
+
+
+
 
     }
 
