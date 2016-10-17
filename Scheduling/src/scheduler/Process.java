@@ -84,6 +84,7 @@ public class Process implements Comparable<Process> {
     public int getIoTime(){
         return this.ioTime;
     }
+    public int getTurnaroundTime(){return this.turnaroundTime;}
 
     public void setFinishingTime(int f){
         this.finishingTime = f;
@@ -122,7 +123,9 @@ public class Process implements Comparable<Process> {
         this.remainingTime = rt;
     }
 
-
+    public String getProcNumString(){
+        return "("+this.getA()+" "+this.getB()+" "+this.getC()+" "+this.getM()+")";
+    }
     public int compareTo(Process o){
         if(this.A < o.getA()){
             return -1;

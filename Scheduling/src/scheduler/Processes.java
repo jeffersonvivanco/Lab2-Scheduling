@@ -60,6 +60,13 @@ public class Processes {
         return result;
     }
 
+    public String getProcsNumsString(){
+        String str = "";
+        for (Process p: processes) {
+            str = str + p.getProcNumString() + " ";
+        }
+        return str;
+    }
     @Override
     public String toString(){
         String string = "";
