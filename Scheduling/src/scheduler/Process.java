@@ -21,6 +21,8 @@ public class Process implements Comparable<Process> {
     private int blockedTime;
     private int readyTime;
     private boolean terminated = false;
+    private String state = "unstarted";
+
 
     private int remainingTime = 0;
 
@@ -85,6 +87,10 @@ public class Process implements Comparable<Process> {
         return this.ioTime;
     }
     public int getTurnaroundTime(){return this.turnaroundTime;}
+    public String getState(){
+        return this.state;
+    }
+
 
     public void setFinishingTime(int f){
         this.finishingTime = f;
@@ -122,6 +128,9 @@ public class Process implements Comparable<Process> {
     public void setRemainingTime(int rt){
         this.remainingTime = rt;
     }
+    public void setState(String s){this.state = s; }
+
+
 
     public String getProcNumString(){
         return "("+this.getA()+" "+this.getB()+" "+this.getC()+" "+this.getM()+")";

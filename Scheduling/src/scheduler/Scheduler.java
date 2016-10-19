@@ -8,8 +8,29 @@ import java.util.*;
 public class Scheduler {
 
     public static void main(String[] args){
+
+        File f  = null;
+        boolean verboseFlag = false;
+        if(args.length == 1){
+            f = new File(args[0]);
+        }
+        else if(args.length == 2){
+            if(args[0].equals("--verbose")){
+                verboseFlag = true;
+                f = new File(args[1]);
+            }
+            else{
+                System.out.println("Error: Please make sure you entered a verbose flag");
+                System.exit(0);
+            }
+        }
+        else{
+            System.out.println("Error: Too many arguments");
+            System.exit(0);
+        }
+
         Scheduler scheduler = new Scheduler();
-        File f = new File("/Users/jeffersonvivanco/IdeaProjects/Lab2-Scheduling/FCFSInputs/input-3.txt");
+
         Processes processes1 = new Processes();
         Processes processes2 = new Processes();
         Processes processes3 = new Processes();
@@ -45,15 +66,15 @@ public class Scheduler {
         System.out.println("The sorted input is: "+processes1.getProcsNumsString()+"\n\n");
 
 
-        scheduler.fcfsScheduling(processes1);
-        scheduler.roundRobinScheduling(processes2);
-        scheduler.uniprogrammedScheduling(processes3);
-        scheduler.sjfScheduling(processes4);
+        scheduler.fcfsScheduling(processes1,verboseFlag);
+        scheduler.roundRobinScheduling(processes2, verboseFlag);
+        scheduler.uniprogrammedScheduling(processes3, verboseFlag);
+        scheduler.sjfScheduling(processes4, verboseFlag);
 
 
 
     }
-    public void fcfsScheduling(Processes processes) {
+    public void fcfsScheduling(Processes processes, boolean verboseFlag) {
 
 
         processes.sort();
@@ -77,10 +98,17 @@ public class Scheduler {
         while(terminatedList.size() != totalNumOfProcesses){
 
 //            System.out.println(clock);//Checking the clock
-
+            if(verboseFlag){
+                String str = "Before cycle: "+ clock+"    ";
+                for(int i=0; i<processes.size(); i++){
+                    str = str + " "+processes.getProcess(i).getState() + " "+processes.getProcess(i).getBurstTime();
+                }
+                System.out.println(str);
+            }
             for(int i=0; i<processes.size() && index<processes.size();i++){
                 if(processes.getProcess(index).getA() <= clock){
                     readyQ.add(processes.getProcess(index));
+                    processes.getProcess(index).setState("ready");
                     index++;
                 }
             }
@@ -89,6 +117,7 @@ public class Scheduler {
                 Process pr  = readyQ.peek();
 
                 if(pr.getReadyTime() <= clock){
+                    pr.setState("running");
                     pr = readyQ.remove();
 
                     int cpuBurstTime = pr.getBurstTime();
@@ -123,7 +152,7 @@ public class Scheduler {
                         pr.setReadyTime(pr.getBlockedTime() + clock + 1);
 
                         blockedQ.add(pr);
-
+                        pr.setState("blocked");
                         clock = clock+cpuBurstTime;
 
                     }
@@ -149,6 +178,7 @@ public class Scheduler {
                 Process tr = blockedQ.peek();
                 if(tr.getReadyTime() <= clock){
                     tr = blockedQ.remove();
+                    tr.setState("Ready");
                     readyQ.add(tr);
                 }
             }
@@ -169,14 +199,14 @@ public class Scheduler {
         System.out.printf("\tCPU Utilization: %f\n",cpuUtilization);
         double ioUtilization = (timeWithIo+0.0)/(timeWithCpuAndIo);
         System.out.printf("\tI/O Utilization: %f\n", ioUtilization);
-        System.out.printf("\tThroughput: %f\n", ((terminatedList.size()/(clock+0.0))*100.0));
+        System.out.printf("\tThroughput: %f processes per hundred cycles.\n", ((terminatedList.size()/(clock+0.0))*100.0));
         System.out.printf("\tAverage turnaround time: %f\n", totalTurnaroundTime/terminatedList.size());
         System.out.printf("\tAverage waiting time: %f\n\n", totalWaitTime/terminatedList.size());
 
 
     }
 
-    public void roundRobinScheduling(Processes processes) {
+    public void roundRobinScheduling(Processes processes, boolean verboseFlag) {
 
 
         processes.sort();
@@ -200,10 +230,17 @@ public class Scheduler {
         while(terminatedList.size() != totalNumOfProcesses){
 
 //            System.out.println(clock);//Checking the clock
-
+            if(verboseFlag){
+                String str = "Before cycle: "+ clock+"    ";
+                for(int i=0; i<processes.size(); i++){
+                    str = str + " "+processes.getProcess(i).getState() + " "+processes.getProcess(i).getBurstTime();
+                }
+                System.out.println(str);
+            }
             for(int i=0; i<processes.size() && index<processes.size();i++){
                 if(processes.getProcess(index).getA() <= clock){
                     readyQ.add(processes.getProcess(index));
+                    processes.getProcess(i).setState("ready");
                     index++;
                 }
             }
@@ -213,7 +250,7 @@ public class Scheduler {
 
                 if(pr.getReadyTime() <= clock){
                     pr = readyQ.remove();
-
+                    pr.setState("running");
                     int cpuBurstTime = pr.getBurstTime();
 
 
@@ -270,6 +307,7 @@ public class Scheduler {
             if(!blockedQ.isEmpty()){
                 Process tr = blockedQ.peek();
                 if(tr.getReadyTime() <= clock){
+                    tr.setState("blocked");
                     tr = blockedQ.remove();
                     readyQ.add(tr);
                 }
@@ -291,28 +329,40 @@ public class Scheduler {
         System.out.printf("\tCPU Utilization: %f\n",cpuUtilization);
         double ioUtilization = (timeWithIo+0.0)/(timeWithCpuAndIo);
         System.out.printf("\tI/O Utilization: %f\n", ioUtilization);
-        System.out.printf("\tThroughput: %f\n", ((terminatedList.size()/(clock+0.0))*100.0));
+        System.out.printf("\tThroughput: %f processes per hundred cycles.\n", ((terminatedList.size()/(clock+0.0))*100.0));
         System.out.printf("\tAverage turnaround time: %f\n", totalTurnaroundTime/terminatedList.size());
         System.out.printf("\tAverage waiting time: %f\n\n", totalWaitTime/terminatedList.size());
     }
-    public void uniprogrammedScheduling(Processes processes){
+    public void uniprogrammedScheduling(Processes processes, boolean verboseFlag){
 
         processes.sort();
 
         int clock = 0;
-
-
-
+        int timeWithCpuAndIo = 0;
+        int timeWithCpu = 0;
+        int timeWithIo = 0;
 
         for(int i=0; i<processes.size(); i++){
+
             Process pr = processes.getProcess(i);
+            pr.setState("ready");
             pr.setWaitingTime(clock - pr.getA());
 
             while(processes.getProcess(i).getRemainingTime() > 0){
-
+                if(verboseFlag){
+                    String str = "Before cycle: "+ clock+"    ";
+                    for(int x=0; x<processes.size(); x++){
+                        str = str + " "+processes.getProcess(x).getState() + " "+processes.getProcess(x).getBurstTime();
+                    }
+                    System.out.println(str);
+                }
 
                 if(pr.getRemainingTime() > 1 && pr.getReadyTime() <= clock){
+                    pr.setState("running");
                     int ioBurstTime = pr.getBurstTime()*pr.getM();
+                    timeWithIo = timeWithIo + ioBurstTime;
+                    timeWithCpu = timeWithCpu + pr.getBurstTime();
+                    timeWithCpuAndIo = timeWithCpuAndIo + ioBurstTime+pr.getBurstTime();
                     int currentFinishTime = ioBurstTime + pr.getBurstTime();
                     pr.setFinishingTime(pr.getFinishingTime()+currentFinishTime);
                     pr.setIoTime(pr.getIoTime() + ioBurstTime);
@@ -321,6 +371,9 @@ public class Scheduler {
                     clock++;
                 }
                 else if(pr.getRemainingTime() <= 1 && pr.getReadyTime() <= clock){
+                    pr.setState("blocked");
+                    timeWithCpu = timeWithCpu + pr.getBurstTime();
+                    timeWithCpuAndIo  = timeWithCpuAndIo + pr.getBurstTime();
                     int currentFinishTime = pr.getBurstTime() + pr.getWaitingTime();
                     pr.setFinishingTime(pr.getFinishingTime()+currentFinishTime+pr.getA());
                     pr.setTurnaroundTime(pr.getFinishingTime() - pr.getA());
@@ -333,16 +386,27 @@ public class Scheduler {
                 }
             }
         }
-
-
-
-
+        double totalWaitTime = 0; //Incremented below and used to calculate average wait time.
+        double totalTurnaroundTime = 0;
         System.out.println("The scheduling algorithm used was Uniprocessing.\n");
-        System.out.println(processes);
+        for(int i=0; i<processes.size(); i++){
+            totalWaitTime  = totalWaitTime + processes.getProcess(i).getWaitingTime();
+            totalTurnaroundTime  = totalTurnaroundTime + processes.getProcess(i).getTurnaroundTime();
+            System.out.println(processes.getProcess(i)+"\n");
+        }
 
+        System.out.println("Summary Data: ");
+        System.out.println("\tFinishing time: "+clock);
+        double cpuUtilization = (timeWithCpu+0.0)/(timeWithCpuAndIo);
+        System.out.printf("\tCPU Utilization: %f\n",cpuUtilization);
+        double ioUtilization = (timeWithIo+0.0)/(timeWithCpuAndIo);
+        System.out.printf("\tI/O Utilization: %f\n", ioUtilization);
+        System.out.printf("\tThroughput: %f processes per hundred cycles.\n", ((processes.size()/(clock+0.0))*100.0));
+        System.out.printf("\tAverage turnaround time: %f\n", totalTurnaroundTime/processes.size());
+        System.out.printf("\tAverage waiting time: %f\n\n", totalWaitTime/processes.size());
 
     }
-    public void sjfScheduling(Processes processes){
+    public void sjfScheduling(Processes processes, boolean verboseFlag){
 
         processes.sort();
 
@@ -359,13 +423,26 @@ public class Scheduler {
 
         int index = 0;
 
+
+
+        int timeWithCpuAndIo = 0;
+        int timeWithCpu = 0;
+        int timeWithIo = 0;
+
         while(terminatedList.size() != totalNumOfProcesses){
 
 //            System.out.println(clock);//Checking the clock
-
+            if(verboseFlag){
+                String str = "Before cycle: "+ clock+"    ";
+                for(int i=0; i<processes.size(); i++){
+                    str = str + " "+processes.getProcess(i).getState() + " "+processes.getProcess(i).getBurstTime();
+                }
+                System.out.println(str);
+            }
             for(int i=0; i<processes.size() && index<processes.size();i++){
                 if(processes.getProcess(index).getA() <= clock){
                     readyQ.add(processes.getProcess(index));
+                    processes.getProcess(i).setState("ready");
                     index++;
                 }
             }
@@ -404,7 +481,10 @@ public class Scheduler {
                         int ioBurstTime = cpuBurstTime*pr.getM();
                         int currentIo = pr.getIoTime();
                         pr.setIoTime(currentIo + ioBurstTime);
-
+                        pr.setState("running");
+                        timeWithCpu = timeWithCpu+ pr.getBurstTime();
+                        timeWithCpuAndIo = timeWithCpuAndIo + ioBurstTime + pr.getBurstTime();
+                        timeWithIo = timeWithIo + ioBurstTime;
 
                         int currentFinishTime = pr.getFinishingTime();
                         int finishTime = cpuBurstTime+ioBurstTime;
@@ -416,11 +496,13 @@ public class Scheduler {
                         pr.setReadyTime(pr.getBlockedTime() + clock + 1);
 
                         blockedQ.add(pr);
-
+                        pr.setState("blocked");
                         clock = clock+cpuBurstTime;
 
                     }
                     else{
+                        timeWithCpu = timeWithCpu + pr.getBurstTime();
+                        timeWithCpuAndIo  = timeWithCpuAndIo + pr.getBurstTime();
                         pr.setFinishingTime(pr.getBurstTime() + pr.getFinishingTime()+pr.getA() + waitTime);
                         pr.setTurnaroundTime(pr.getFinishingTime() - pr.getA());
                         pr.setRemainingTime(pr.getRemainingTime() - cpuBurstTime);
@@ -440,6 +522,7 @@ public class Scheduler {
                 Process tr = blockedQ.peek();
                 if(tr.getReadyTime() <= clock){
                     tr = blockedQ.remove();
+                    tr.setState("ready");
                     readyQ.add(tr);
                 }
             }
@@ -448,9 +531,24 @@ public class Scheduler {
 
         }
         System.out.println("The scheduling algorithm used was shortest job first.\n");
+        double totalWaitTime = 0; //Incremented below and used to calculate average wait time.
+        double totalTurnaroundTime = 0;
         for(int i=0; i<terminatedList.size(); i++){
+            totalWaitTime  = totalWaitTime + processes.getProcess(i).getWaitingTime();
+            totalTurnaroundTime  = totalTurnaroundTime + processes.getProcess(i).getTurnaroundTime();
             System.out.println(terminatedList.get(i)+"\n");
         }
+
+
+        System.out.println("Summary Data: ");
+        System.out.println("\tFinishing time: "+clock);
+        double cpuUtilization = (timeWithCpu+0.0)/(timeWithCpuAndIo);
+        System.out.printf("\tCPU Utilization: %f\n",cpuUtilization);
+        double ioUtilization = (timeWithIo+0.0)/(timeWithCpuAndIo);
+        System.out.printf("\tI/O Utilization: %f\n", ioUtilization);
+        System.out.printf("\tThroughput: %f processes per hundred cycles.\n", ((processes.size()/(clock+0.0))*100.0));
+        System.out.printf("\tAverage turnaround time: %f\n", totalTurnaroundTime/processes.size());
+        System.out.printf("\tAverage waiting time: %f\n\n", totalWaitTime/processes.size());
 
     }
     public void sortByRemainingTime(ArrayList<Process> processes){
